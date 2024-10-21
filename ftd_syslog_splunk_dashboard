@@ -1,0 +1,547 @@
+{
+    "visualizations": {
+        "viz_aP2m3rYq": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_TdmdNB6O"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "430001 chart count",
+            "description": "Intrusion Event"
+        },
+        "viz_UyGOFv95": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_G5qjdho2_ds_TdmdNB6O"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "430003 chart count",
+            "description": "Conn Event End"
+        },
+        "viz_R3X4kryf": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_xTW5rXkW_ds_G5qjdho2_ds_TdmdNB6O"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "430004 chart count",
+            "description": "File Event"
+        },
+        "viz_81Ubjj5W": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_EuBHzQ1Q_ds_TdmdNB6O"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "430002 chart count",
+            "description": "Conn Event Beginning"
+        },
+        "viz_JJgy1gUu": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_tfeXVgKS_ds_xTW5rXkW_ds_G5qjdho2_ds_TdmdNB6O"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "430005 chart count",
+            "description": "File Malware Event"
+        },
+        "viz_IJykXZmK": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_HRigB3eQ"
+            },
+            "title": "KBytes Outbound"
+        },
+        "viz_DBub1e5p": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_HlJPwVz5_ds_HRigB3eQ"
+            },
+            "title": "KBytes Inbound"
+        },
+        "viz_Gy0SbKPt": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_volgR3UU"
+            },
+            "title": "Conn All"
+        },
+        "viz_gJIXRw4r": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_eCt8dOoq"
+            },
+            "title": "File Event Table"
+        },
+        "viz_lyaeV9fu": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_QHuBJJ14"
+            },
+            "title": "Intrusion top source"
+        },
+        "viz_kvMnbzmW": {
+            "type": "splunk.line",
+            "options": {
+                "dataValuesDisplay": "all"
+            },
+            "dataSources": {
+                "primary": "ds_oEcngrsZ"
+            },
+            "title": "Conn Couunt"
+        },
+        "viz_z0vGYNvw": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_vnv81Aec"
+            },
+            "title": "Total Outbound Bytes per 10min"
+        },
+        "viz_5oYGzwFV": {
+            "type": "splunk.table",
+            "dataSources": {
+                "primary": "ds_5oVO2xj1"
+            },
+            "containerOptions": {},
+            "showProgressBar": false,
+            "showLastUpdated": false,
+            "title": "AMP event_type stats",
+            "options": {
+                "count": 30
+            }
+        },
+        "viz_JXxkkUJq": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_gMIHfwQh"
+            },
+            "title": "Threat Detected"
+        },
+        "viz_REgrmrFs": {
+            "type": "splunk.singlevalue",
+            "dataSources": {
+                "primary": "ds_AEkgWIYC_ds_gMIHfwQh"
+            },
+            "title": "Threat Quarantined"
+        }
+    },
+    "dataSources": {
+        "ds_TdmdNB6O": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430001 dest_ip=$dest_ip$ src_ip=$src_ip$ ingress_interface=$ingress_interface$  dest_port=$dest_port$\n| chart count"
+            },
+            "name": "430001 chart count"
+        },
+        "ds_G5qjdho2_ds_TdmdNB6O": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430003 dest_ip=$dest_ip$ src_ip=$src_ip$ ingress_interface=$ingress_interface$ AC_RuleAction=$AC_RuleAction$ dest_port=$dest_port$\n| chart count"
+            },
+            "name": "430003 chart count"
+        },
+        "ds_xTW5rXkW_ds_G5qjdho2_ds_TdmdNB6O": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$  rec_type=430004 dest_ip=$dest_ip$ src_ip=$src_ip$   dest_port=$dest_port$\n| chart count"
+            },
+            "name": "430004 chart count file"
+        },
+        "ds_EuBHzQ1Q_ds_TdmdNB6O": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430002 dest_ip=$dest_ip$ src_ip=$src_ip$ ingress_interface=$ingress_interface$ AC_RuleAction=$AC_RuleAction$ dest_port=$dest_port$\n| chart count"
+            },
+            "name": "430002 chart count"
+        },
+        "ds_tfeXVgKS_ds_xTW5rXkW_ds_G5qjdho2_ds_TdmdNB6O": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$  rec_type=430005 dest_ip=$dest_ip$ src_ip=$src_ip$ dest_port=$dest_port$\n| chart count"
+            },
+            "name": "430005 chart count"
+        },
+        "ds_HRigB3eQ": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ dest_ip=$dest_ip$ src_ip=$src_ip$ dest_port=$dest_port$ ingress_interface IN (inside*) AC_RuleAction=Allow | eval kb_init=(InitiatorBytes/1024) | eval kb_resp=(ResponderBytes/1024) | chart sum(kb_init) as in sum(kb_resp) as out | eval total = in "
+            },
+            "name": "search in"
+        },
+        "ds_HlJPwVz5_ds_HRigB3eQ": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ dest_ip=$dest_ip$ src_ip=$src_ip$ dest_port=$dest_port$ ingress_interface IN (outside*) AC_RuleAction=Allow | eval kb_init=(InitiatorBytes/1024) | eval kb_resp=(ResponderBytes/1024) | chart sum(kb_init) as in sum(kb_resp) as out | eval total = in "
+            },
+            "name": "search out"
+        },
+        "ds_volgR3UU": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ dest_ip=$dest_ip$ src_ip=$src_ip$ ingress_interface=$ingress_interface$  AC_RuleAction=$AC_RuleAction$ dest_port=$dest_port$\n| eval datetime=strftime(_time, \"%Y-%m-%d %H:%M\")\n| table datetime, src_ip, dest_ip, dest_port, InitiatorBytes, ResponderBytes\n| sort - datetime"
+            },
+            "name": "Search table"
+        },
+        "ds_eCt8dOoq": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430004 \n| eval datetime=strftime(_time, \"%Y-%m-%d %H:%M\")\n| table datetime, file_name, type, app, web_app, file_hash, sha_disposition, size\n| sort - datetime"
+            },
+            "name": "Search file table"
+        },
+        "ds_QHuBJJ14": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$  rec_type=430001  ingress_interface=$ingress_interface$  \n|  stats count by src_ip \n|  sort - count"
+            },
+            "name": "Search_1"
+        },
+        "ds_oEcngrsZ": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430003 | timechart span=10m count"
+            },
+            "name": "Search_2"
+        },
+        "ds_vnv81Aec": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=$teamname$ rec_type=430003  src_ip=$src_ip$  dest_ip=$dest_ip$ dest_port=$dest_port$\n| bin _time span=10m\n| eval datetime=strftime(_time, \"%Y-%m-%d %H:%M\")\n| stats sum(InitiatorBytes) as TotalInitiatorBytes by datetime, src_ip, dest_ip, dest_port\n| table datetime, src_ip, dest_ip, dest_port, TotalInitiatorBytes\n| sort - datetime"
+            },
+            "name": "Search 10min sub initbytes"
+        },
+        "ds_5oVO2xj1": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=amp \n|  stats count by event_type"
+            },
+            "name": "indexamp"
+        },
+        "ds_gMIHfwQh": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=amp event_type=\"Threat Detection\"\n|  stats count "
+            },
+            "name": "Search_3"
+        },
+        "ds_AEkgWIYC_ds_gMIHfwQh": {
+            "type": "ds.search",
+            "options": {
+                "query": "index=amp event_type=\"Threat Quarantined\"\n|  stats count "
+            },
+            "name": "Search_3 copy 1"
+        }
+    },
+    "defaults": {
+        "dataSources": {
+            "ds.search": {
+                "options": {
+                    "queryParameters": {
+                        "latest": "$global_time.latest$",
+                        "earliest": "$global_time.earliest$"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "input_global_trp": {
+            "type": "input.timerange",
+            "options": {
+                "token": "global_time",
+                "defaultValue": "@d,now"
+            },
+            "title": "グローバル時間範囲"
+        },
+        "input_gtRpb6GH": {
+            "options": {
+                "defaultValue": "*",
+                "token": "dest_ip"
+            },
+            "title": "dest_ip",
+            "type": "input.text"
+        },
+        "input_bKmmxwlf": {
+            "options": {
+                "defaultValue": "*",
+                "token": "src_ip"
+            },
+            "title": "src_ip",
+            "type": "input.text"
+        },
+        "input_eJCA23lm": {
+            "options": {
+                "items": [
+                    {
+                        "label": "*",
+                        "value": "*"
+                    },
+                    {
+                        "label": "ingress-1",
+                        "value": "inside1"
+                    },
+                    {
+                        "label": "egress-1",
+                        "value": "outside1"
+                    },
+                    {
+                        "label": "ingress-2",
+                        "value": "inside2"
+                    },
+                    {
+                        "label": "egress-2",
+                        "value": "outside2"
+                    },
+                    {
+                        "label": "ingress-3",
+                        "value": "inside3"
+                    },
+                    {
+                        "label": "egress-3",
+                        "value": "outside3"
+                    }
+                ],
+                "defaultValue": "*",
+                "token": "ingress_interface"
+            },
+            "title": "direction",
+            "type": "input.dropdown"
+        },
+        "input_DWH9DMqW": {
+            "options": {
+                "items": [
+                    {
+                        "label": "*",
+                        "value": "*"
+                    },
+                    {
+                        "label": "A",
+                        "value": "teama"
+                    },
+                    {
+                        "label": "B",
+                        "value": "teamb"
+                    },
+                    {
+                        "label": "C",
+                        "value": "teamc"
+                    }
+                ],
+                "defaultValue": "*",
+                "token": "teamname"
+            },
+            "title": "team filter",
+            "type": "input.dropdown"
+        },
+        "input_oAv4vRH5": {
+            "options": {
+                "items": [
+                    {
+                        "label": "*",
+                        "value": "*"
+                    },
+                    {
+                        "label": "Allow",
+                        "value": "Allow"
+                    },
+                    {
+                        "label": "Block",
+                        "value": "Block"
+                    }
+                ],
+                "defaultValue": "*",
+                "token": "AC_RuleAction"
+            },
+            "title": "AC_RuleAction",
+            "type": "input.dropdown"
+        },
+        "input_XyufXlF5": {
+            "options": {
+                "defaultValue": "*",
+                "token": "dest_port"
+            },
+            "title": "dest_port",
+            "type": "input.text"
+        }
+    },
+    "layout": {
+        "type": "grid",
+        "options": {
+            "width": 1440,
+            "height": 960
+        },
+        "structure": [
+            {
+                "item": "viz_aP2m3rYq",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 269,
+                    "h": 190
+                }
+            },
+            {
+                "item": "viz_IJykXZmK",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 190,
+                    "w": 721,
+                    "h": 200
+                }
+            },
+            {
+                "item": "viz_Gy0SbKPt",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 390,
+                    "w": 719,
+                    "h": 245
+                }
+            },
+            {
+                "item": "viz_gJIXRw4r",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 635,
+                    "w": 1439,
+                    "h": 494
+                }
+            },
+            {
+                "item": "viz_kvMnbzmW",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 1129,
+                    "w": 1440,
+                    "h": 400
+                }
+            },
+            {
+                "item": "viz_z0vGYNvw",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 1529,
+                    "w": 1440,
+                    "h": 400
+                }
+            },
+            {
+                "item": "viz_5oYGzwFV",
+                "type": "block",
+                "position": {
+                    "x": 0,
+                    "y": 1929,
+                    "w": 720,
+                    "h": 800
+                }
+            },
+            {
+                "item": "viz_81Ubjj5W",
+                "type": "block",
+                "position": {
+                    "x": 269,
+                    "y": 0,
+                    "w": 293,
+                    "h": 190
+                }
+            },
+            {
+                "item": "viz_UyGOFv95",
+                "type": "block",
+                "position": {
+                    "x": 562,
+                    "y": 0,
+                    "w": 284,
+                    "h": 190
+                }
+            },
+            {
+                "item": "viz_lyaeV9fu",
+                "type": "block",
+                "position": {
+                    "x": 719,
+                    "y": 390,
+                    "w": 720,
+                    "h": 245
+                }
+            },
+            {
+                "item": "viz_JXxkkUJq",
+                "type": "block",
+                "position": {
+                    "x": 720,
+                    "y": 1929,
+                    "w": 360,
+                    "h": 800
+                }
+            },
+            {
+                "item": "viz_DBub1e5p",
+                "type": "block",
+                "position": {
+                    "x": 721,
+                    "y": 190,
+                    "w": 718,
+                    "h": 200
+                }
+            },
+            {
+                "item": "viz_R3X4kryf",
+                "type": "block",
+                "position": {
+                    "x": 846,
+                    "y": 0,
+                    "w": 288,
+                    "h": 190
+                }
+            },
+            {
+                "item": "viz_REgrmrFs",
+                "type": "block",
+                "position": {
+                    "x": 1080,
+                    "y": 1929,
+                    "w": 360,
+                    "h": 800
+                }
+            },
+            {
+                "item": "viz_JJgy1gUu",
+                "type": "block",
+                "position": {
+                    "x": 1134,
+                    "y": 0,
+                    "w": 305,
+                    "h": 190
+                }
+            }
+        ],
+        "globalInputs": [
+            "input_global_trp",
+            "input_DWH9DMqW",
+            "input_bKmmxwlf",
+            "input_gtRpb6GH",
+            "input_XyufXlF5",
+            "input_eJCA23lm",
+            "input_oAv4vRH5"
+        ]
+    },
+    "description": "",
+    "title": "ftd_syslog_splunk_dashboard"
+}
